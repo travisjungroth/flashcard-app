@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Deck Lists</h1>
+    <div class="row">
+        {% for deck in all_deck_list %}
+        <div class="card text-center col-md-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ deck.name }}</h5>
+                <a href="{% url 'home' %}" class="btn btn-success btn btn-block">Start</a>
+                <a href="{% url 'card_list' deckid=deck.pk %}" class="btn btn-primary btn-block">Card List</a>
+                <div align="center" style="padding-top: 5px">
+                    <a href="{% url 'deck_update' deckid=deck.pk %}" class="btn btn-secondary btn-sm">Change Name</a>
+                    <a href="{% url 'deck_delete' deckid=deck.pk %}" class="btn btn-danger btn-sm">Delete Deck</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

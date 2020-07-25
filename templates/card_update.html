@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Card Update</h1>
+    <div class="jumbotron">
+        <h1 class="display-4">Updating card from {{ card.deck.name }}</h1>
+        <hr class="my-4">
+        <form action="" method="post">{% csrf_token %}
+            <div class="form-row">
+                <label for="deck">{{ form.deck.label_tag }}</label>
+                <div class="col-sm-10">
+                    <select id="deck">
+                    {% for deck in form.deck %}
+                        <option>{{ deck }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="card-front">{{ form.front.label_tag }}</label>
+                    <textarea class="form-control" id="card-front" rows="2" placeholder="White the question here..."></textarea>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="card-back">{{ form.back.label_tag }}</label>
+                    <textarea class="form-control" id="card-back" rows="2" placeholder="Write the solution here..."></textarea>
+                </div>
+            </div>
+        <button class="btn btn-primary" type="submit">Update</button>
+        </form>
+    </div>
+
+{% endblock content %}
