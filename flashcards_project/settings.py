@@ -25,7 +25,7 @@ SECRET_KEY = 't2*-*h6zv18nmemfw(t50s_)w5i@*!vu!=6ygvq8weihy@@w^x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pages.apps.PagesConfig',
+    'pages.apps.PagesConfig',*
     'flashcards.apps.FlashcardsConfig',
 ]
 
